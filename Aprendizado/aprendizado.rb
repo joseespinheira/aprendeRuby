@@ -113,31 +113,72 @@ pessoa_troca("camiseta")
 # invocação com o parametro:
 pessoa_troca("camiseta", "sala")
 
+puts ""
+puts ""
 
 
+# Classe
+class Pessoa
+    def fala
+    puts "Sei Falar"
+    end
+    
+    def troca(roupa, lugar="banheiro")
+    "trocando de #{roupa} no #{lugar}"
+    end
+end
+
+p = Pessoa.new
+# o objeto apontado por p já nasce com os métodos fala e troca.
+
+# Pode-se adicionar outro metodo sem criar outra classe.
+class Pessoa
+    def novo_metodo
+        # ...
+    end
+end
+
+# Imprime o nome da classe:
+puts p.class
+# => Pessoa
+
+# imprime todos os metodos da classe:
+print Pessoa.instance_methods
+
+# pula linha
+puts
+puts
+
+#obj = "uma string"
+#obj.puts "todos os objetos possuem o método puts?"
+
+# Array
+
+lista = [1, 2, "string", :simbolo, /$regex^/]
+puts lista[2]
 
 
+for i in (0..4)
+    puts lista[i]
+end
 
 
+#cliente = "Petrobras"
+#puts cliente.methods
 
+puts puts
 
+# Entrada de Varios parametros
+def compra(*produtos)
+    # produtos é uma array
+    puts produtos.size
+end
 
+compra(1,2,3,4,5,6)
 
+# haster é bom ver mais tarde
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Programação funcional.
 
 
 
