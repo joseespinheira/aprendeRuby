@@ -25,6 +25,10 @@ puts nome.class
 #print "Nome do restaurante: "s
 puts nome
 
+puts puts puts puts
+=begin
+
+
 # A divisão sempre aredonda para baixo se for numeros inteiros
 a = 15 + 0.0
 b = 2
@@ -178,16 +182,63 @@ compra(1,2,3,4,5,6)
 
 # haster é bom ver mais tarde
 
+
+
+
 # Programação funcional.
 
+class Banco
+    
+    def initialize(contas)
+        @contas = contas
+    end
+    
+    def status
+        saldo = 0
+        for conta in @contas
+            saldo += conta
+            puts saldo
+        end
+        saldo
+    end
+end
+
+banco = Banco.new([200, 300, 400])
+puts banco.status
+
+puts
+class Banco
+# initialize...
+def status
+saldo = 0
+for conta in @contas
+saldo += conta
+if block_given?
+yield(saldo)
+end
+end
+saldo
+end
+end
+
+banco.status do |saldo|
+puts saldo
+end
+=end
 
 
+lista = ["rails", "rake", "ruby", "rvm"]
+lista.each do |programa|
+    puts programa
+end
+puts puts puts puts
 
-
-
-
-
-
+funcionarios = ["Guilherme", "Sergio", "David"]
+nomes_maiusculos = []
+for nome in funcionarios
+    nomes_maiusculos << nome.upcase
+end
+puts nomes_maiusculos
 
 
 
