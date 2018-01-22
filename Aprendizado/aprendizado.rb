@@ -224,7 +224,7 @@ end
 banco.status do |saldo|
 puts saldo
 end
-=end
+
 
 
 lista = ["rails", "rake", "ruby", "rvm"]
@@ -241,19 +241,167 @@ end
 puts nomes_maiusculos
 
 
+caelum = [
+{ruby: 'rr-71', java: 'fj-11'},
+{ruby: 'rr-75', java: 'fj-21'}
+]
+caelum.sort_by { |curso| curso[:ruby] }.each do |curso|
+puts "Curso de RoR na Caelum: #{ curso[:ruby] }"
+end
+caelum.sort_by { |curso| curso[:ruby] }.each do |curso|
+next if curso[:ruby] == 'rr-71'
+puts "Curso de RoR na Caelum: #{ curso[:ruby] }"
+end
+
+class Turma
+    def initialize(*nome)
+        @nome = nome
+    end
+    def size
+        return @nome.size
+    end
+    def imprimir
+        i = 1
+        @nome.each do |nome|
+            print i
+            puts " - #{nome}"
+            i += 1
+        end
+    end
+    
+end
+#for restaurante in @restaurantes
+#puts restaurante.nome
+#end
+
+fjj = Turma.new("Guilherme", "Paulo", "Sérgio")
+
+puts
+puts fjj.size
+
+fjj.imprimir
+
+# erros em ruby
+
+print "Digite um número:"
+numero = gets.to_i
+begin
+resultado = 100 / numero
+rescue
+puts "Número digitado inválido!"
+exit
+end
+puts "100/#{numero} é #{resultado} "
+
+
+# erro com raise
+
+def verifica_idade(idade)
+unless idade > 18
+raise ArgumentError,
+"Você precisa ser maior de idade para jogar jogos violentos."
+end
+end
+verifica_idade(17)
+
+class IdadeInsuficienteException < Exception
+end
+def verifica_idade(idade)
+raise IdadeInsuficienteException,
+"Você precisa ser maior de idade..." unless idade > 18
+end
+
+begin
+verifica_idade(13)
+rescue IdadeInsuficienteException => e
+puts "Foi lançada a exception: #{e}"
+end
 
 
 
 
+def pesquisa_banco(nome)
+if nome.size < 10
+throw :nome_invalido, "Nome invalido, digite novamente"
+end
+# executa a pesquisa
+"cliente #{nome}"
+end
+def executa_pesquisa(nome)
+catch :nome_invalido do
+cliente = pesquisa_banco(nome)
+return cliente
+end
+end
+puts executa_pesquisa("ana")
+# => "Nome invalido, digite novamente"
+puts executa_pesquisa("guilherme silveira")
+# => cliente guilherme silveira
 
 
 
+puts
+puts
+puts
 
 
 
+print "Escreva um texto: "
+texto = gets
+File.open( "caelum.txt", "w" ) do |f|
+f << texto
+end
+
+require 'net/http'
+Net::HTTP.start( 'www.caelum.com.br', 80 ) do |http|
+print( http.get( '/' ).body )
+end
+
+=end
+
+puts "teste"
+
+# Conseito de herança
+class Animal
+    def come
+        puts "comendo!"
+    end
+end
+class Pato < Animal
+    def quack
+        puts "Quack!"
+    end
+end
+pato = Pato.new
+pato.come
+pato.quack
+# => "comendo"
 
 
 
+class PatoNormal
+    def faz_quack
+    puts "Quack!"
+    end
+end
+
+class PatoEstranho
+    def faz_quack
+    puts "Queck!"
+    end
+end
+
+class CriadorDePatos
+    def castiga(pato)
+    pato.faz_quack
+    end
+end
+
+pato1 = PatoNormal.new
+pato2 = PatoEstranho.new
+c = CriadorDePatos.new
+c.castiga(pato1) # => "Quack!"
+c.castiga(pato2) # => "Queck!"
 
 
 
