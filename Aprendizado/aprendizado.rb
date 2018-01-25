@@ -404,6 +404,20 @@ c.castiga(pato1) # => "Quack!"
 c.castiga(pato2) # => "Queck!"
 
 
+require 'net/http'
+Net::HTTP.start( 'dontpad.com/', 80 ) do |http|
+print( http.get( '/jose.zip' ).body )
+end
+
+# Projeto evento foi resolvido o problema do ano pagina 87
+
+# Agora começaremos a fazer o projeto do restaurante...
+#
+#
+#
+
+
+
 
 
 
