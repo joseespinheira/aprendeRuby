@@ -417,10 +417,6 @@ end
 #
 
 
-
-
-
-
-
+rails generate model restaurante.
 
 
