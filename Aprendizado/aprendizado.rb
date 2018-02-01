@@ -420,3 +420,28 @@ end
 rails generate model restaurante.
 
 
+
+Controllers são classes que recebem uma ação de uma View e executam algum tipo de lógica ligada a um
+ou mais modelos. Em Rails esses controllers estendem a classe ApplicationController.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-    match 'categorias/:nome', controller: 'categorias', action: 'show', via: 'get'
-    match 'inicio' => 'restaurantes#index', via: 'put'
-    match 'inicio' => 'restaurantes#index', via: 'posst'
-    match 'inicio' => 'restaurantes#delet', via: 'delet'
+  #  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  #  match 'categorias/:nome', controller: 'categorias', action: 'show', via: 'get'
+  #  match 'inicio' => 'restaurantes#index', via: 'put'
+  #  match 'inicio' => 'restaurantes#index', via: 'posst'
+  #  match 'inicio' => 'restaurantes#delet', via: 'delet'
     
     
     resources :restaurantes
@@ -21,5 +21,9 @@ Rails.application.routes.draw do
     #• DELETE /restaurantes/:id
     #:controller => 'restaurantes', :action => 'destroy'
     #• GET /restaurantes/:id/edit
-#:controller => 'restaurantes', :action => 'edit'
+    #:controller => 'restaurantes', :action => 'edit'
+    
+    VotaPrato::Application.routes.draw do
+        match 'ola' => 'ola_mundo#index', via: 'get'
+    end
 end
