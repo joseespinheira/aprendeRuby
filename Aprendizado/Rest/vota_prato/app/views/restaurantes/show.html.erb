@@ -1,13 +1,19 @@
 <h1>Exibindo Restaurante</h1>
-<p>
-    <b>Nome: </b>
-    <%= @restaurante.nome %>
-</p>
-<p>
-    <b>Endereço: </b>
-    <%= @restaurante.endereco %>
-</p>
-<p>
-    <b>Especialidade: </b>
-    <%= @restaurante.especialidade %>
-</p>
+<table>
+    <tr>
+        <td>Nome:</td>
+        <td><%= @restaurante.nome %></td>
+    </tr>
+    <tr>
+        <td>Endereço:</td>
+        <td><%= @restaurante.endereco %></td>
+    </tr>
+    <tr>
+        <td>Especialidade:</td>
+        <td><%= @restaurante.especialidade %></td>
+    </tr>
+    <tr>
+        <td><%= link_to 'Editar', action: 'edit', id: @restaurante %></td>
+        <td><%= link_to 'Voltar', action: 'index' %></td>
+    </tr>
+</table>

@@ -1,0 +1,31 @@
+<!-- Controle de erros -->
+<% if @restaurante.errors.any? %>
+    <!-- ul com erros aqui -->
+    <ul>
+        <% @restaurante.errors.full_messages.each do |msg| %>
+        <li><%= msg %> </li>
+        <% end %>
+    </ul>
+<% end %>
+
+
+<%= form_for @restaurante do |f| %>
+<table>
+    <tr>
+        <td>Nome: </td>
+        <td><%= f.text_field :nome %> </td>
+    </tr>
+    <tr>    
+        <td>Endereço: </td>
+        <td><%= f.text_field :endereco %> </td>
+    </tr>
+    <tr>    
+        <td>Especialidade: </td>
+        <td><%= f.text_field :especialidade %> </td>
+    </tr>
+    <tr>
+        <td><%= f.submit %></td>
+        <td><%= link_to 'Voltar', action: 'index' %></td>
+    </tr>
+</table>
+<% end %>
