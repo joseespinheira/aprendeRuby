@@ -425,7 +425,7 @@ Controllers são classes que recebem uma ação de uma View e executam algum tip
 ou mais modelos. Em Rails esses controllers estendem a classe ApplicationController.
 
 
-
+mudança
 
 
 
