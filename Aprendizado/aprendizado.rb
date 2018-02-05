@@ -428,7 +428,7 @@ ou mais modelos. Em Rails esses controllers estendem a classe ApplicationControl
 mudança
 
 
-
+rails generate scaffold qualificacao cliente_id:integer restaurante_id:integer nota:float valor_gasto:float --migration=false -s
 
 
 

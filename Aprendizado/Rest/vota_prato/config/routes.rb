@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :qualificacoes
+  resources :clientes
   #  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #  match 'categorias/:nome', controller: 'categorias', action: 'show', via: 'get'
   #  match 'inicio' => 'restaurantes#index', via: 'put'
@@ -24,6 +26,8 @@ Rails.application.routes.draw do
     #:controller => 'restaurantes', :action => 'edit'
     
     VotaPrato::Application.routes.draw do
+  resources :qualificacoes
+  resources :clientes
         match 'ola' => 'ola_mundo#index', via: 'get'
     end
 end
