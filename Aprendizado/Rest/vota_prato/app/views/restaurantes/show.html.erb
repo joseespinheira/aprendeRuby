@@ -12,8 +12,7 @@
         <td>Especialidade:</td>
         <td><%= @restaurante.especialidade %></td>
     </tr>
-    <tr>
-        <td><%= link_to 'Editar', action: 'edit', id: @restaurante %></td>
-        <td><%= link_to 'Voltar', action: 'index' %></td>
-    </tr>
 </table>
+<%= link_to 'Editar', action: 'edit', id: @restaurante %> |
+<%= link_to 'Voltar', action: 'index' %> |
+<%= link_to "Qualificar este restaurante", controller: "qualificacoes", action: "new", restaurante: @restaurante %>

@@ -14,8 +14,20 @@ class QualificacoesController < ApplicationController
 
   # GET /qualificacoes/new
   def new
-    preparar_form
-    @qualificacao = Qualificacao.new
+      preparar_form
+      @qualificacao = Qualificacao.new
+      
+      if params[:cliente]
+        @qualificacao.cliente = Cliente.find(params[:cliente])
+      end
+      if params[:restaurante]
+        @qualificacao.restaurante = Restaurante.find(params[:restaurante])
+      end
+      
+      respond_to do |format|
+        format.html # new.html.erb
+        format.xml { render :xml => @qualificacao }
+      end
   end
 
   # GET /qualificacoes/1/edit
