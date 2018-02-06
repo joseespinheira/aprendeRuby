@@ -12,7 +12,20 @@
         <td>Especialidade:</td>
         <td><%= @restaurante.especialidade %></td>
     </tr>
+    <tr>
+        <td><b>Nota média: </b></td>
+        <td><%= @restaurante.qualificacoes.average(:nota) %> <br/></td>
+    </tr>
+    <tr>
+        <td><b>Qualificações: </b></td>
+        <td><%= @restaurante.qualificacoes.count %> <br/></td>
+    </tr>
+    <tr>
+        <td><b>Preço médio: </b></td>
+        <td><%= @restaurante.qualificacoes.average(:valor_gasto) %> <br/><br/></td>
+    </tr>
 </table>
 <%= link_to 'Editar', action: 'edit', id: @restaurante %> |
 <%= link_to 'Voltar', action: 'index' %> |
-<%= link_to "Qualificar este restaurante", controller: "qualificacoes", action: "new", restaurante: @restaurante %>
+<%= link_to "Qualificar este restaurante", controller: "qualificacoes", action: "new", restaurante: @restaurante %><br>
+

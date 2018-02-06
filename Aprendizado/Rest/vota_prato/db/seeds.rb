@@ -26,5 +26,7 @@ Cliente.create(nome: "Paulo", idade: '30');
 Cliente.create(nome: "Alana", idade: "14");
 
 
-Qualificacao.create( nota: '4.0', valor_gasto: '3.0', cliente_id: "2", restaurante_id: "2" );
-Qualificacao.create( nota: '5.0', valor_gasto: '63.0', cliente_id: "3", restaurante_id: "6" );
+Qualificacao.create(nota: '4.0', valor_gasto: '3.0', cliente_id: "2", restaurante_id: "2");
+Qualificacao.create(nota: '5.0', valor_gasto: '63.0', cliente_id: "3", restaurante_id: "6");
+
+Comentario.create(conteudo: "teste oioioi;", comentavel_id: '1', comentavel_type: "Restaurante");
