@@ -14,5 +14,8 @@
   <body>
     <%= menu_principal %w(restaurantes clientes qualificacoes) %>
     <%= yield %>
+    <script type="text/javascript">
+    <%= yield :js %>
+    </script>    
   </body>
 </html>
