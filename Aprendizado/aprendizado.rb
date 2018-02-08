@@ -433,7 +433,7 @@ rails generate scaffold qualificacao cliente_id:integer restaurante_id:integer n
 
 
 
-
+Só foi colocado o comando de lista na classe restaurante.
 
 
 

@@ -1,6 +1,14 @@
 <h1>Exibindo Restaurante</h1>
 <table>
     <tr>
+        <td>
+            <p>
+                <b>Foto:</b>
+                <%= image_tag @restaurante.foto.url(:thumb) %>
+            </p>
+        </td>
+    </tr>
+    <tr>
         <td>Nome:</td>
         <td><%= @restaurante.nome %></td>
     </tr>

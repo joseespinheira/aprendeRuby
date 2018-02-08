@@ -9,7 +9,7 @@
 <% end %>
 
 
-<%= form_for @restaurante do |f| %>
+<%= form_for @restaurante, html: {multipart: true} do |f| %>
 <table>
     <tr>
         <td>Nome: </td>
@@ -22,6 +22,11 @@
     <tr>    
         <td>Especialidade: </td>
         <td><%= f.text_field :especialidade %> </td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.file_field :foto %>
+        </td>
     </tr>
     <tr>
         <td><%= f.submit %></td>

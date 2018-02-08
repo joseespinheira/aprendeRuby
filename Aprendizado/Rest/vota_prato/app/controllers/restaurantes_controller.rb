@@ -2,7 +2,9 @@ class RestaurantesController < ApplicationController
     
     # Inicio
     def index
-        @restaurantes = Restaurante.order :nome
+        @restaurantes = Restaurante.order("nome").page(params['page']).per(5)
+        # @restaurantes = Restaurante.order :nome
+        # @users = User.order(:name).page params[:page]
         respond_to do |format|
             format.html
             format.xml {render xml: @restaurantes}
@@ -34,7 +36,7 @@ class RestaurantesController < ApplicationController
     
     # Parametros que vem da view
     def restaurante_params
-        params.require(:restaurante).permit(:nome, :endereco, :especialidade)
+        params.require(:restaurante).permit(:nome, :endereco, :especialidade, :foto)
     end
     
     # Pesiste os dados no banco de dados
