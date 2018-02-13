@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20180213144857) do
 
   create_table "arduinos", force: :cascade do |t|
     t.string "ip"
+    t.string "nome"
     t.integer "equipamento_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

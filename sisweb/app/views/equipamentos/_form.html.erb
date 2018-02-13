@@ -17,8 +17,10 @@
   </div>
 
   <div class="field">
-    <%= form.label :comando_id %>
+    <%= form.label :comando %>
     <%= form.collection_select(:comando_id, @comandos, :id, :nome, :prompt => true) %>
+  </div>
+  
   </div>
 
   <div class="actions">

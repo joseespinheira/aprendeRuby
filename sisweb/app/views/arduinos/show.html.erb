@@ -6,12 +6,14 @@
 </p>
 
 <p>
-  <strong>Comando:</strong>
-  <%= @arduino.comando_id %>
+  <strong>Nome:</strong>
+  <%= @arduino.nome %>
+</p>
+
+<p>
+  <strong>Equipamento:</strong>
+  <%= @arduino.equipamento.nome %>
 </p>
 
 <%= link_to 'Edit', edit_arduino_path(@arduino) %> |
 <%= link_to 'Back', arduinos_path %>
-</br>
-<a href="192.168.25.1">GVT</a>
-<%= link_to 'Home', "http://"+@arduino.ip %>

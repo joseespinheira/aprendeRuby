@@ -4,22 +4,25 @@ class EquipamentosController < ApplicationController
   # GET /equipamentos
   # GET /equipamentos.json
   def index
-    #@equipamentos = Equipamento.all
-    @comando = Comando.order("nome")
+    @equipamentos = Equipamento.all
   end
 
   # GET /equipamentos/1
   # GET /equipamentos/1.json
   def show
-    @comando = Comando.find params[:id]
+    @equipamento = Equipamento.find params[:id]
+    #@comandos = Comando.find params[:id]
+    
+    #@comando = Comando.find params[:id]
+    #    respond_to do |format|
+    #        format.html
+    #        format.json {render json: @restaurante}
+    #        format.xml {render xml: @restaurante}
+    #    end
   end
 
   # GET /equipamentos/new
   def new
-    
-    
-    
-    
     preparar_form
       @equipamento = Equipamento.new
       
@@ -34,6 +37,7 @@ class EquipamentosController < ApplicationController
 
   # GET /equipamentos/1/edit
   def edit
+    preparar_form
   end
 
   # POST /equipamentos
@@ -46,6 +50,7 @@ class EquipamentosController < ApplicationController
         format.html { redirect_to @equipamento, notice: 'Equipamento was successfully created.' }
         format.json { render :show, status: :created, location: @equipamento }
       else
+        preparar_form
         format.html { render :new }
         format.json { render json: @equipamento.errors, status: :unprocessable_entity }
       end
@@ -55,11 +60,14 @@ class EquipamentosController < ApplicationController
   # PATCH/PUT /equipamentos/1
   # PATCH/PUT /equipamentos/1.json
   def update
+    @equipamento = Equipamento.find(params[:id])
+    
     respond_to do |format|
       if @equipamento.update(equipamento_params)
-        format.html { redirect_to @equipamento, notice: 'Equipamento was successfully updated.' }
+        format.html { redirect_to @equipamento, notice: 'Equipamento atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @equipamento }
       else
+        preparar_form
         format.html { render :edit }
         format.json { render json: @equipamento.errors, status: :unprocessable_entity }
       end

@@ -15,10 +15,15 @@
     <%= form.label :ip %>
     <%= form.text_field :ip, id: :arduino_ip %>
   </div>
+  
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, id: :arduino_nome %>
+  </div>
 
   <div class="field">
-    <%= form.label :comando_id %>
-    <%= form.text_field :comando_id, id: :arduino_comando_id %>
+    <%= form.label :equipamento_id %>
+    <%= form.collection_select(:equipamento_id, @equipamentos, :id, :nome, :prompt => true) %>
   </div>
 
   <div class="actions">

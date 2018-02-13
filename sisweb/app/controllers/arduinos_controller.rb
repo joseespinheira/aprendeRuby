@@ -10,15 +10,22 @@ class ArduinosController < ApplicationController
   # GET /arduinos/1
   # GET /arduinos/1.json
   def show
+    #preparar_form
   end
 
   # GET /arduinos/new
   def new
-    @arduino = Arduino.new
+    preparar_form
+      @arduino = Arduino.new
+      
+      if params[:equipamento_id]
+        @arduino.equipamento_id = Equipamento.find(params[:equipamento])
+      end
   end
 
   # GET /arduinos/1/edit
   def edit
+    preparar_form
   end
 
   # POST /arduinos
@@ -31,6 +38,7 @@ class ArduinosController < ApplicationController
         format.html { redirect_to @arduino, notice: 'Arduino was successfully created.' }
         format.json { render :show, status: :created, location: @arduino }
       else
+        preparar_form
         format.html { render :new }
         format.json { render json: @arduino.errors, status: :unprocessable_entity }
       end
@@ -40,11 +48,14 @@ class ArduinosController < ApplicationController
   # PATCH/PUT /arduinos/1
   # PATCH/PUT /arduinos/1.json
   def update
+    @arduino = Arduino.find params[:id]
+    
     respond_to do |format|
       if @arduino.update(arduino_params)
         format.html { redirect_to @arduino, notice: 'Arduino was successfully updated.' }
         format.json { render :show, status: :ok, location: @arduino }
       else
+        preparar_form
         format.html { render :edit }
         format.json { render json: @arduino.errors, status: :unprocessable_entity }
       end
@@ -66,9 +77,11 @@ class ArduinosController < ApplicationController
     def set_arduino
       @arduino = Arduino.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def arduino_params
-      params.require(:arduino).permit(:ip, :comando_id)
+      params.require(:arduino).permit(:ip, :nome, :equipamento_id)
+    end
+    def preparar_form
+      @equipamentos = Equipamento.order :nome
     end
 end

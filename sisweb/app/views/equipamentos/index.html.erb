@@ -17,7 +17,7 @@
       <tr>
         <td><%= equipamento.id %></td>
         <td><%= equipamento.nome %></td>
-        <td><%= comando.nome %></td>
+        <td><%= equipamento.comando.nome %></td>
         <td><%= link_to 'Show', equipamento %></td>
         <td><%= link_to 'Edit', edit_equipamento_path(equipamento) %></td>
         <td><%= link_to 'Destroy', equipamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>

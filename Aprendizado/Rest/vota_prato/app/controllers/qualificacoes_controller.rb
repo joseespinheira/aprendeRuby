@@ -59,14 +59,12 @@ class QualificacoesController < ApplicationController
     
     respond_to do |format|
       if @qualificacao.update_attributes(qualificacao_params)
-        format.html { redirect_to @qualificacao,
-        notice: 'Qualificacao foi atualizada com sucesso.' }
+        format.html { redirect_to @qualificacao, notice: 'Qualificacao foi atualizada com sucesso.' }
         format.json { head :no_content }
       else
         preparar_form
         format.html { render action: "edit" }
-        format.json { render json: @qualificacao.errors,
-        status: :unprocessable_entity }
+        format.json { render json: @qualificacao.errors, status: :unprocessable_entity }
       end
     end
   end
