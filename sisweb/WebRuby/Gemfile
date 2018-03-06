@@ -8,8 +8,8 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-# Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.3.18', '< 0.5'
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -19,12 +19,14 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-# Usada para paginacção na exibição de registros.
-gem 'kaminari'
-# Usada para fazer upload de fotos e alteração de dimensionamento.
-gem 'paperclip'
-# gema para ajudar com ajax
+#para jquery
 gem 'responders', '~> 2.3'
+#gema para criar usuario e senha
+gem 'devise'
+# game para bootstrap
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem 'bootstrap', '~> 4.0.0.alpha3'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -39,32 +41,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-
-
-
-##################################################
-#  NOTE FOR UPGRADING FROM 4.3.0 OR EARLIER      #
-##################################################
-#
-#Paperclip is now compatible with aws-sdk >= 2.0.0.
-#
-#If you are using S3 storage, aws-sdk >= 2.0.0 requires you to make a few small
-#changes:
-#
-#* You must set the `s3_region`
-#* If you are explicitly setting permissions anywhere, such as in an initializer,
-#  note that the format of the permissions changed from using an underscore to
-#  using a hyphen. For example, `:public_read` needs to be changed to
-#  `public-read`.
-#
-#For a walkthrough of upgrading from 4 to 5 and aws-sdk >= 2.0 you can watch
-#http://rubythursday.com/episodes/ruby-snack-27-upgrade-paperclip-and-aws-sdk-in-prep-for-rails-5
-## gem aws-sdk >= 2.0.0
-
-
-
-
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
